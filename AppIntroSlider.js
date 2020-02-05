@@ -122,6 +122,7 @@ export default class AppIntroSlider extends React.Component {
     return (
       <View style={!this.props.bottomButton && style}>
         <TouchableOpacity
+          disabled={true}
           onPress={onPress}
           style={this.props.bottomButton ? styles.flexOne : this.props.buttonStyle}
         >
@@ -156,7 +157,8 @@ export default class AppIntroSlider extends React.Component {
         <View style={styles.paginationDots}>
           {this.props.slides.length > 1 &&
             this.props.slides.map((_, i) => (
-              <TouchableOpacity
+              <View
+                disabled={true}
                 key={i}
                 style={[
                   styles.dot,
@@ -164,7 +166,6 @@ export default class AppIntroSlider extends React.Component {
                     ? this.props.activeDotStyle
                     : this.props.dotStyle,
                 ]}
-                onPress={() => this._onPaginationPress(i)}
               />
             ))}
         </View>
